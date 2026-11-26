@@ -1,12 +1,12 @@
 import heapq
 import numpy as np
-from src.baseline import allocation_energy
+from src.metrics import allocation_energy
 
 
 def greedy_heap(g, energy_budget, gap=1.0, bmax=15):
     """
     This version selects the cheapest bit with a min-heap priority queue.
-    Greedy bit-loading algorithm (baseline: linear scan for the cheapest bit).
+    Greedy bit loading using a min-heap; ties go to the lowest tone index, matching greedy_scan.
     
         Inputs:
             g : array with shape (N,)
@@ -32,7 +32,6 @@ def greedy_heap(g, energy_budget, gap=1.0, bmax=15):
             - gap not a finite scalar >= 1
             - bmax not a non-negative integer
     """
-    # --- validation: copy exactly from greedy_scan ---
     g = np.asarray(g, dtype=float)
     if g.ndim != 1 or len(g) == 0:
         raise ValueError("g must be a non-empty 1D array")
@@ -44,7 +43,6 @@ def greedy_heap(g, energy_budget, gap=1.0, bmax=15):
         raise ValueError("gap must be a finite scalar >= 1")
     if isinstance(bmax, bool) or not isinstance(bmax, (int, np.integer)) or bmax < 0:
         raise ValueError("bmax must be a non-negative integer")
-    # ... the same five checks ...
 
     N = len(g)
     bits = np.zeros(N, dtype=int)

@@ -1,11 +1,5 @@
 import numpy as np
-
-
-def allocation_energy(bits, g, gap=1.0):
-    """Total energy needed for an allocation: sum of gap * (2**b - 1) / g."""
-    bits = np.asarray(bits, dtype=float)
-    g = np.asarray(g, dtype=float)
-    return float(np.sum(gap * (2.0**bits - 1.0) / g))
+from src.metrics import allocation_energy
 
 
 def greedy_scan(g, energy_budget, gap=1.0, bmax=15):

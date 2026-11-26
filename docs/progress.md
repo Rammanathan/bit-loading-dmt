@@ -29,5 +29,9 @@
 - Added 9 tests, including heap = scan on 200 random cases with ties and
   brute-force optimality. All pass.
 
+### 26 Nov 2026
+- Added `src/data.py` (channel generator from the course guide).
+- Added `src/metrics.py` (`allocation_energy` moved here; `time_function`: one warm-up run, then the median of repeated runs).
+
 ## Next steps
-- `src/data.py`, `src/metrics.py`, `run_experiments.py`, configs.
+- `run_experiments.py`, configs.
