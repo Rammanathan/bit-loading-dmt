@@ -24,14 +24,10 @@
 
 ## 25 Nov 2026
 - Implemented `greedy_heap` in `src/modified.py`.
-- Set up pytest (`conftest.py`, `src/__init__.py`); run with `python -m pytest`.
-  Running test files directly failed with "No module named 'src'".
-- Added 9 tests, including heap = scan on 200 random cases with ties and
-  brute-force optimality. All pass.
+- Set up pytest (`conftest.py`, `src/__init__.py`); run with `python -m pytest`. Running test files directly failed with "No module named 'src'".
+- Added 9 tests, including heap = scan on 200 random cases with ties and brute-force optimality. All pass.
 
 ### 26 Nov 2026
 - Added `src/data.py` (channel generator from the course guide).
 - Added `src/metrics.py` (`allocation_energy` moved here; `time_function`: one warm-up run, then the median of repeated runs).
-
-## Next steps
-- `run_experiments.py`, configs.
+- Added `run_experiments.py` and configs: N = 8, 16, 64, 256, 1024, 4096; 20 test seeds (1000–1019) per size; g_true and g_hat; budget = 1.0 × N; timings are the median of 5 runs after a warm-up. Heap setup timed separately.

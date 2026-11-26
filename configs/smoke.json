@@ -1,0 +1,12 @@
+{
+  "name": "smoke",
+  "tones": [8, 64],
+  "seed_start": 0,
+  "num_seeds": 3,
+  "channels": ["g_hat"],
+  "rho": 1.0,
+  "gap": 1.0,
+  "bmax": 15,
+  "repeats": 3,
+  "output": "results/smoke.csv"
+}

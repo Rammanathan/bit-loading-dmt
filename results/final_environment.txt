@@ -1,0 +1,5 @@
+config: configs/final.json
+python: 3.13.0
+numpy: 2.5.5
+platform: Windows-11-10.0.26300-SP0
+processor: Intel64 Family 6 Model 186 Stepping 3, GenuineIntel

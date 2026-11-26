@@ -1,0 +1,12 @@
+{
+  "name": "final",
+  "tones": [8, 16, 64, 256, 1024, 4096],
+  "seed_start": 1000,
+  "num_seeds": 20,
+  "channels": ["g_true", "g_hat"],
+  "rho": 1.0,
+  "gap": 1.0,
+  "bmax": 15,
+  "repeats": 5,
+  "output": "results/final.csv"
+}
