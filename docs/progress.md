@@ -31,3 +31,8 @@
 - Added `src/data.py` (channel generator from the course guide).
 - Added `src/metrics.py` (`allocation_energy` moved here; `time_function`: one warm-up run, then the median of repeated runs).
 - Added `run_experiments.py` and configs: N = 8, 16, 64, 256, 1024, 4096; 20 test seeds (1000–1019) per size; g_true and g_hat; budget = 1.0 × N; timings are the median of 5 runs after a warm-up. Heap setup timed separately.
+
+### 27 Nov 2026
+- Added `make_figures.py`: summary table (`results/summary.csv`) and two figures (speed-up vs N with 95% CI, runtime vs N). Speed-up uses the geometric mean (it is a ratio) and a Student-t interval (20 cases per N).
+- Problem: the first final run showed g_true and g_hat taking up to 8x different times for the same work. Cause: all g_true cases ran first and the laptop slowed down partway through. Fix: interleaved the channel types inside the seed loop and reran on mains power with other apps closed.
+- Result: identical allocations in all 240 cases, no budget violations; the heap is faster at every N, with the speed-up growing as N grows.

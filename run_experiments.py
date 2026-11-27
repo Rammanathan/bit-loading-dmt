@@ -68,15 +68,16 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
 
     rows = []
-    for channel in config["channels"]:
-        for N in config["tones"]:
-            budget = config["rho"] * N
-            for seed in seeds:
-                g_true, g_hat = make_loading_case(seed, tones=N)
+    for N in config["tones"]:
+        budget = config["rho"] * N
+        for seed in seeds:
+            g_true, g_hat = make_loading_case(seed, tones=N)
+            for channel in config["channels"]:
                 g = g_true if channel == "g_true" else g_hat
                 result = run_case(g, budget, config["gap"], config["bmax"], config["repeats"])
                 rows.append({"channel": channel, "N": N, "seed": seed,
                              "budget": budget, **result})
+        for channel in config["channels"]:
             group = [r for r in rows if r["channel"] == channel and r["N"] == N]
             print(f"{channel:6s} N={N:5d}  identical={all(r['identical'] for r in group)}  "
                   f"median speed-up={np.median([r['speedup'] for r in group]):.2f}x")

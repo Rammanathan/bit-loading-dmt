@@ -224,3 +224,7 @@ __marimo__/
 
 # Personal reference files (not part of the project)
 my_notes.txt
+
+# Smoke results
+results/smoke.csv
+results/smoke_environment.txt
